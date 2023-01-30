@@ -1,0 +1,17 @@
+.visibleMobile {
+  display: none;
+}
+
+.t-right {
+  text-align: right;
+}
+
+@media (max-width: 1023px) {
+  .visibleMobile {
+    display: block;
+  }
+
+  .hiddenMobile {
+    display: none;
+  }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+  <g id="icon_sort_topheader" transform="translate(-400 -213)">
+    <rect id="Rectangle_1482" data-name="Rectangle 1482" width="10" height="10" transform="translate(400 213)" fill="#911e1e" opacity="0"/>
+    <path id="icon_sort_up" d="M4,0,8,4H0Z" transform="translate(401 213)" fill="rgba(152,169,188,0.6)"/>
+    <path id="icon_sort_up-2" data-name="icon_sort_up" d="M4,0,8,4H0Z" transform="translate(409 223) rotate(180)" fill="rgba(152,169,188,0.3)"/>
+  </g>
+</svg>

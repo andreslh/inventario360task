@@ -1,5 +1,69 @@
 .Menu {
   width: 242px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--gogo-blue);
+  color: var(--text-white);
+}
+
+.logo {
+  margin: 23px 28px;
+}
+
+.Menu ul {
+  list-style: none;
+  padding: 0;
+}
+.Menu ul li a {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  cursor: pointer;
+  opacity: 0.8;
+  color: var(--text-white);
+  text-decoration: none;
+}
+
+.Menu ul li a.active,
+.Menu ul li a:hover {
+  background-color: var(--gogo-light-blue);
+  opacity: 1;
+}
+
+.Menu ul li a.active:before {
+  width: 3px;
+  height: 100%;
+  content: '';
+  background-color: var(--gogo-lighter-blue);
+}
+
+.Menu ul i,
+.Menu ul span {
+  display: inline-block;
+}
+
+.Menu ul i {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  margin-left: 28px;
+  background-size: contain;
+}
+
+.posts i {
+  background-image: url(./icon_activity.svg);
+}
+.users i {
+  background-image: url(./icon_contacts.svg);
+}
+
+.Menu ul span {
+  padding-left: 10px;
+}
+
+@media (max-width: 1023px) {
+  .Menu {
+    position: absolute;
+    z-index: 2;
+    left: -242px;
+  }
 }

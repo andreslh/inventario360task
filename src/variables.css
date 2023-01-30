@@ -1,3 +1,27 @@
 :root {
-  --gogo-blue: #2D98DA;
+  /* Background colors*/
+  --gogo-white: #ffffff;
+
+  --gogo-blue: #2d98da;
+  --gogo-light-blue: #3da0dd;
+  --gogo-lighter-blue: #75cfec;
+
+  --gogo-grey: #f3f5f7;
+  --gogo-light-grey: #e9eef2;
+
+  --gogo-green: #36c99a;
+
+  /* Text colors*/
+  --text-white: #ffffff;
+
+  --text-grey: #57728a;
+  --text-medium-grey: #727d8e;
+  --text-light-grey: #98a9bc;
+
+  --text-blue: #2d98da;
+
+  --desktop-padding: 30px;
+  --mobile-padding: 21px;
+
+  --mobile-breakpoint: 1023px;
 }

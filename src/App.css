@@ -1,4 +1,19 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+}
+
 .App {
   display: flex;
   flex-direction: row;
+  transition: left 2s ease;
+}
+
+.MobileMenuVisible {
+  min-width: 100vw;
+  height: 100vh;
+  left: 242px;
+  top: 0;
 }

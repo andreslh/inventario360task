@@ -1,0 +1,44 @@
+.Button {
+  display: flex;
+  justify-content: center;
+  border: none;
+  background-color: var(--gogo-light-grey);
+  color: var(--text-light-grey);
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.Button.light {
+  background-color: var(--gogo-white);
+}
+
+.Button.big {
+  padding: 12px 16px;
+}
+
+.Button:hover {
+  background-color: var(--gogo-green);
+  color: var(--text-white);
+}
+
+.position-left .icon {
+  margin-right: 10px;
+}
+
+.position-right {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.position-right .icon {
+  margin-left: 10px;
+}
+
+.icon {
+  width: 12px;
+  height: 14px;
+}

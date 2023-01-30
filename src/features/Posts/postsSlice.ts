@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export interface Post {
-
-}
+export interface Post {}
 
 export interface PostsState {
   data: Post[];

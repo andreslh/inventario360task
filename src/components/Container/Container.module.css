@@ -1,0 +1,13 @@
+.Container {
+  padding: 0 var(--desktop-padding) 0 var(--desktop-padding);
+}
+
+@media (max-width: 1023px) {
+  .Container {
+    padding: 0 var(--mobile-padding);
+  }
+
+  .Container.nopadding {
+    padding: 0;
+  }
+}
