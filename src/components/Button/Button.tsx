@@ -9,6 +9,7 @@ interface IButtonProps {
   iconPosition?: 'left' | 'right';
   theme?: 'standard' | 'light';
   size?: 'standard' | 'big';
+  onClick: () => void;
 }
 
 export function Button(props: IButtonProps) {
@@ -20,7 +21,7 @@ export function Button(props: IButtonProps) {
   });
 
   return (
-    <button className={classes}>
+    <button className={classes} onClick={() => props.onClick()}>
       {props.icon ? (
         <img src={props.icon} alt='icon' className={styles.icon} />
       ) : null}
