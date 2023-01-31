@@ -1,10 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import postsReducer from '../features/Posts/postsSlice';
-import routerReducer from '../features/Router/routerSlice';
+import menuReducer from '../components/Menu/menuSlice';
 
 export const store = configureStore({
   reducer: {
-    router: routerReducer,
+    menu: menuReducer,
     posts: postsReducer,
   },
 });
