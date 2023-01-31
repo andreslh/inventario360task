@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { REQUEST_STATUS } from '../../app/constants';
 import { RootState } from '../../app/store';
-import { toggleFavorite } from '../../app/utils';
+import { toggleFavorite } from '../../app/utils/favorites';
 
 export interface Post {
   id: string;
@@ -9,6 +9,11 @@ export interface Post {
   body: string;
   author: string;
   favorite: boolean;
+}
+
+export interface Comment {
+  id: string;
+  body: string;
 }
 
 export interface PostsState {

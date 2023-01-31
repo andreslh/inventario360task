@@ -8,6 +8,7 @@
 
   --gogo-grey: #f3f5f7;
   --gogo-light-grey: #e9eef2;
+  --gogo-grey-background: rgba(87, 114, 138, 0.4);
 
   --gogo-green: #36c99a;
 
@@ -19,6 +20,9 @@
   --text-light-grey: #98a9bc;
 
   --text-blue: #2d98da;
+
+  --carbon: #304457;
+  --raven: #7a8896;
 
   --desktop-padding: 30px;
   --mobile-padding: 21px;

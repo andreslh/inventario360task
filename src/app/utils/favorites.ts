@@ -1,6 +1,6 @@
-import { PostsState } from '../features/Posts/postsSlice';
-import { UsersState } from '../features/Users/usersSlice';
-import { LEAD_GO_GO, ENTITIES } from './constants';
+import { PostsState } from '../../features/Posts/postsSlice';
+import { UsersState } from '../../features/Users/usersSlice';
+import { LEAD_GO_GO, ENTITIES } from '../constants';
 
 export const toggleFavorite = (
   id: string,
@@ -18,9 +18,13 @@ export const toggleFavorite = (
 
   const index = state.data.findIndex((post) => post.id === id);
 
-  console.log(isFavorite);
   return {
     index,
     isFavorite: isFavorite ? false : true,
   };
+};
+
+export const isFavorite = (entity: ENTITIES, id?: string): boolean => {
+  const localStorageItem = `${LEAD_GO_GO}-${entity}-${id}`;
+  return !!localStorage.getItem(localStorageItem);
 };

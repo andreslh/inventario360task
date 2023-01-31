@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { Grid } from '../../components/Grid/Grid';
-import { getUsers } from '../Users/UsersAPI';
 import {
   requestUsers,
   selectUsers,
@@ -9,6 +8,7 @@ import {
   usersError,
   switchFavorite,
 } from '../Users/usersSlice';
+import { getUsers } from './api/requests';
 
 export function Users() {
   const dispatch = useAppDispatch();
@@ -32,6 +32,7 @@ export function Users() {
       content='users'
       items={users}
       onSwitchFavorite={(id) => handleFavoriteSwitch(id)}
+      onView={() => {}}
     />
   );
 }

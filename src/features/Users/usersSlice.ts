@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { REQUEST_STATUS } from '../../app/constants';
 import { RootState } from '../../app/store';
-import { toggleFavorite } from '../../app/utils';
+import { toggleFavorite } from '../../app/utils/favorites';
 
 export interface User {
   id: string;

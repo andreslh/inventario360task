@@ -11,6 +11,7 @@ import arrowRight from './icon_arrow_right.svg';
 import arrowLeft from './icon_arrow_left.svg';
 
 import styles from './Grid.module.css';
+import { parseEntity } from '../../app/utils/posts';
 
 const ITEMS_PER_PAGE = 10;
 const INCREMENT = 'increment';
@@ -29,6 +30,7 @@ interface IGridProps {
   content: ENTITIES;
   items: IGridElement[];
   onSwitchFavorite: (id: string) => void;
+  onView: (id: string) => void;
 }
 
 export function Grid(props: IGridProps) {
@@ -58,6 +60,10 @@ export function Grid(props: IGridProps) {
   props.items.slice(startItem, endItem).forEach((item) => {
     const starClass = item.favorite ? activeStar : inactiveStar;
 
+    const handleView = () => props.onView(item.id);
+
+    const entity = parseEntity(item);
+
     itemsList.push(
       <tr key={item.id}>
         <td
@@ -74,22 +80,25 @@ export function Grid(props: IGridProps) {
           />
         </td>
         <td className={classnames(styles['main-text'])}>
-          <p className={styles.title}>
-            {props.content === 'posts' ? item.title : item.name}
-          </p>
+          <p className={styles.title}>{entity.name}</p>
           <p className={classnames('display-mobile', styles.detail)}>
-            ID: {item.id} /{' '}
-            {props.content === 'posts' ? `By ${item.author}` : item.phone}
+            ID: {item.id} / {entity.detailPrefix}
+            {entity.detail}
           </p>
         </td>
         <td className='hide-mobile' width='25%'>
-          {props.content === 'posts' ? item.author : item.phone}
+          {entity.detail}
         </td>
         <td className={classnames(styles['last-column'], 't-right')} width='5%'>
           <div className='hide-mobile'>
-            <Button text={'View'} onClick={() => {}} />
+            <Button text={'View'} onClick={handleView} />
           </div>
-          <img src={arrowRight} alt='View' className='display-mobile' />
+          <img
+            src={arrowRight}
+            alt='View'
+            className='display-mobile'
+            onClick={handleView}
+          />
         </td>
       </tr>
     );
