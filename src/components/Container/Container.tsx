@@ -10,7 +10,7 @@ type IContainerProps = {
 
 export function Container(props: IContainerProps) {
   const classes = classnames(styles.Container, {
-    [styles.nopadding]: props.mobileBehavior === 'nopadding',
+    [styles['no-padding']]: props.mobileBehavior === 'nopadding',
   });
 
   return <div className={classes}>{props.children}</div>;

@@ -5,11 +5,25 @@
 }
 
 .Grid .info {
-  color: var(--text-medium-grey);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: var(--desktop-padding);
 }
-.Grid .highlightedText {
+
+.Grid .info p {
+  color: var(--text-medium-grey);
+  margin: 0;
+}
+.Grid .highlighted-text {
   color: var(--text-blue);
+}
+
+.Grid .info .controls-top {
+  display: flex;
+}
+.Grid .info .controls-top button:first-of-type {
+  margin-right: 10px;
 }
 
 .content {
@@ -47,9 +61,11 @@
   list-style: 34px;
 }
 
-.content th,
+.content th {
+  padding: 30px 0;
+}
 .content td {
-  padding: 20px 0;
+  padding: 13px 0;
 }
 
 .content th i {
@@ -64,20 +80,24 @@
   color: var(--text-grey);
 }
 
-.content .bold {
+.content .main-text {
   font-weight: 600;
 }
+.content td p {
+  margin: 0;
+}
 
-.content .firstColumn {
+.content .first-column {
   padding-left: var(--desktop-padding);
 }
-.content .lastColumn {
+.content .last-column {
   padding-right: var(--desktop-padding);
 }
 
 .controls {
   display: flex;
   padding-top: var(--desktop-padding);
+  padding-bottom: var(--desktop-padding);
 }
 
 .controls button:first-child {
@@ -89,25 +109,21 @@
     border-radius: 0;
   }
 
-  .content .firstColumnMobile {
+  .content .first-column-mobile {
     padding-left: var(--mobile-padding);
   }
-  .content .lastColumn {
+  .content .last-column {
     padding-right: var(--mobile-padding);
   }
 
-  .itemMainText {
-    padding-right: 15px;
+  td.main-text {
+    padding-left: 13px;
+    padding-right: 13px;
   }
-  .itemMainText p {
+  .main-text p {
     margin: 0;
   }
-  .itemMainText .title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .itemMainText .detail {
+  .main-text .detail {
     font-weight: normal;
     font-size: 12px;
   }

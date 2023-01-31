@@ -13,14 +13,16 @@ import './common.css';
 
 function App() {
   const mobileMenuState = useAppSelector(selectMenu);
-  const classes = classnames('App', {
-    MobileMenuVisible: !!mobileMenuState,
+  const classes = classnames('app-inner', {
+    'menu-open': !!mobileMenuState,
   });
 
   return (
-    <div className={classes}>
-      <Menu />
-      <Router />
+    <div className='App'>
+      <div className={classes}>
+        <Menu />
+        <Router />
+      </div>
     </div>
   );
 }

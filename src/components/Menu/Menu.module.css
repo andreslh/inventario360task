@@ -6,7 +6,7 @@
 }
 
 .logo {
-  margin: 23px 28px;
+  margin: 20px 28px 0px 28px;
 }
 
 .Menu ul {
@@ -65,5 +65,6 @@
     position: absolute;
     z-index: 2;
     left: -242px;
+    height: 100%;
   }
 }

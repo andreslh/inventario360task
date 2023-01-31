@@ -1,4 +1,4 @@
-.headerContent {
+.header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,7 +17,7 @@ h1 {
   font-weight: 400;
 }
 
-.User {
+.user {
   display: flex;
   align-items: center;
 }
@@ -28,7 +28,7 @@ h1 {
   border-radius: 50%;
 }
 
-.User p {
+.user p {
   display: flex;
   flex-direction: column;
   padding-left: 10px;
@@ -62,7 +62,7 @@ h1 {
     padding-left: 0;
   }
 
-  .User {
+  .user {
     display: none;
   }
 }

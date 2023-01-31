@@ -6,14 +6,24 @@ body {
 }
 
 .App {
-  display: flex;
-  flex-direction: row;
-  transition: left 2s ease;
+  position: relative;
 }
 
-.MobileMenuVisible {
-  min-width: 100vw;
-  height: 100vh;
-  left: 242px;
+.app-inner {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 0;
   top: 0;
+  width: 100vw;
+  min-height: 100vh;
+  transition: left 0.3s ease;
+}
+
+.menu-open {
+  left: 242px;
+}
+
+.app-inner.menu-open main {
+  opacity: 0.8;
 }

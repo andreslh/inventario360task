@@ -14,7 +14,7 @@ export function Header(props: IHeaderProps) {
   return (
     <header className={styles.Header}>
       <Container>
-        <div className={styles.headerContent}>
+        <div className={styles['header-content']}>
           <div className={styles.mobile}>
             <img
               className={styles.sidebar}
@@ -25,7 +25,7 @@ export function Header(props: IHeaderProps) {
             <h1>Posts</h1>
           </div>
 
-          <div className={styles.User}>
+          <div className={styles.user}>
             <img src={avatar} alt='Avatar' />
             <p>
               <span className={styles.username}>Dan Romero</span>

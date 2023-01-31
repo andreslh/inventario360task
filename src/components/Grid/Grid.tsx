@@ -55,24 +55,29 @@ export function Grid(props: IGridProps) {
 
     itemsList.push(
       <tr key={item.id}>
-        <td className={classnames(styles.firstColumn, 'hiddenMobile')}>
+        <td
+          className={classnames(styles['first-column'], 'hide-mobile')}
+          width='6%'
+        >
           {item.id}
         </td>
-        <td className={styles.firstColumnMobile}>
+        <td className={styles['first-column-mobile']} width='5%'>
           <img src={starClass} alt='Favorite' />
         </td>
-        <td className={classnames(styles.bold, styles.mainText)}>
+        <td className={classnames(styles['main-text'])}>
           <p className={styles.title}>{item.title}</p>
-          <p className={classnames('visibleMobile', styles.detail)}>
+          <p className={classnames('display-mobile', styles.detail)}>
             ID: {item.id} / By {item.author}
           </p>
         </td>
-        <td className='hiddenMobile'>{item.author}</td>
-        <td className={classnames(styles.lastColumn, 't-right')}>
-          <div className='hiddenMobile'>
+        <td className='hide-mobile' width='25%'>
+          {item.author}
+        </td>
+        <td className={classnames(styles['last-column'], 't-right')} width='5%'>
+          <div className='hide-mobile'>
             <Button text={'View'} onClick={() => {}} />
           </div>
-          <img src={arrowRight} alt='View' className='visibleMobile' />
+          <img src={arrowRight} alt='View' className='display-mobile' />
         </td>
       </tr>
     );
@@ -81,22 +86,41 @@ export function Grid(props: IGridProps) {
   return (
     <div className={styles.Grid}>
       <Container>
-        <p className={styles.info}>
-          Showing{' '}
-          <span className={styles.highlightedText}>
-            {startItem + 1} to {endItem <= itemsLength ? endItem : itemsLength}
-          </span>{' '}
-          of <span className={styles.highlightedText}>{itemsLength}</span> posts
-        </p>
+        <div className={styles.info}>
+          <p>
+            Showing{' '}
+            <span className={styles['highlighted-text']}>
+              {startItem + 1} to{' '}
+              {endItem <= itemsLength ? endItem : itemsLength}
+            </span>{' '}
+            of <span className={styles['highlighted-text']}>{itemsLength}</span>{' '}
+            posts
+          </p>
+          <div className={styles['controls-top']}>
+            <Button
+              text='Prev'
+              icon={arrowLeft}
+              theme='light'
+              size='big'
+              onClick={() => handlePageChange(DECREMENT)}
+            />
+            <Button
+              text='Next'
+              icon={arrowRight}
+              iconPosition='right'
+              theme='light'
+              size='big'
+              onClick={() => handlePageChange(INCREMENT)}
+            />
+          </div>
+        </div>
       </Container>
 
       <Container mobileBehavior='nopadding'>
         <table className={styles.content} cellPadding='0' cellSpacing='0'>
           <thead>
-            <tr className={'hiddenMobile'}>
-              <th
-                className={classnames(styles.firstColumn, styles.firstHeader)}
-              >
+            <tr className={'hide-mobile'}>
+              <th className={styles['first-column']}>
                 <span>ID</span>
                 <i></i>
               </th>
