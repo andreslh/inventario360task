@@ -41,13 +41,18 @@ export function Grid(props: IGridProps) {
     () => currentPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
     [currentPage]
   );
+  const canGoNext = useMemo(
+    () => endItem < totalPages * ITEMS_PER_PAGE,
+    [endItem, totalPages]
+  );
+  const canGoPrev = useMemo(() => currentPage > 0, [currentPage]);
 
   const handlePageChange = (action: string) => {
-    if (action === INCREMENT && endItem < totalPages * ITEMS_PER_PAGE) {
+    if (action === INCREMENT && canGoNext) {
       setCurrentPage(currentPage + 1);
     }
 
-    if (action === DECREMENT && currentPage > 0) {
+    if (action === DECREMENT && canGoPrev) {
       setCurrentPage(currentPage - 1);
     }
   };
@@ -78,7 +83,11 @@ export function Grid(props: IGridProps) {
             posts
           </p>
           <div className={styles['controls-top']}>
-            <GridControls onPageChange={handlePageChange} />
+            <GridControls
+              onPageChange={handlePageChange}
+              prevDisabled={!canGoPrev}
+              nextDisabled={!canGoNext}
+            />
           </div>
         </div>
       </Container>
@@ -92,7 +101,11 @@ export function Grid(props: IGridProps) {
 
       <Container>
         <div className={styles.controls}>
-          <GridControls onPageChange={handlePageChange} />
+          <GridControls
+            onPageChange={handlePageChange}
+            prevDisabled={!canGoPrev}
+            nextDisabled={!canGoNext}
+          />
         </div>
       </Container>
     </div>

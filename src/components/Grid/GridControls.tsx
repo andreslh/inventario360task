@@ -8,6 +8,8 @@ import arrowLeft from './icon_arrow_left.svg';
 
 interface IGridControlProps {
   onPageChange: (action: string) => void;
+  prevDisabled: boolean;
+  nextDisabled: boolean;
 }
 
 export function GridControls(props: IGridControlProps) {
@@ -18,6 +20,7 @@ export function GridControls(props: IGridControlProps) {
         icon={arrowLeft}
         theme='light'
         size='big'
+        disabled={props.prevDisabled}
         onClick={() => props.onPageChange(DECREMENT)}
       />
       <Button
@@ -26,6 +29,7 @@ export function GridControls(props: IGridControlProps) {
         iconPosition='right'
         theme='light'
         size='big'
+        disabled={props.nextDisabled}
         onClick={() => props.onPageChange(INCREMENT)}
       />
     </>

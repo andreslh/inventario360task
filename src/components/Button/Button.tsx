@@ -9,6 +9,7 @@ interface IButtonProps {
   iconPosition?: 'left' | 'right';
   theme?: 'standard' | 'light';
   size?: 'standard' | 'big';
+  disabled?: boolean;
   onClick: () => void;
 }
 
@@ -18,6 +19,7 @@ export function Button(props: IButtonProps) {
       !!props.icon,
     [styles.light]: props.theme === 'light',
     [styles.big]: props.size === 'big',
+    [styles.disabled]: props.disabled,
   });
 
   return (

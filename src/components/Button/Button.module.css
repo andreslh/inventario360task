@@ -25,6 +25,12 @@
   color: var(--white);
 }
 
+.Button.disabled,
+.Button.disabled:hover {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .position-left .icon {
   margin-right: 10px;
 }
