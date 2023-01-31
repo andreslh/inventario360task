@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { BASE_URL } from '../../app/constants';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { Grid } from '../../components/Grid/Grid';
-import { parsePosts } from './helper';
+import { getUsers } from '../Users/UsersAPI';
+import { requestUsers, setUsers, usersError } from '../Users/usersSlice';
+import { getPosts } from './PostsAPI';
 import { postsError, requestPosts, selectPosts, setPosts } from './postsSlice';
 
 export function Posts() {
@@ -10,15 +11,16 @@ export function Posts() {
   const posts = useAppSelector(selectPosts);
 
   useEffect(() => {
-    dispatch(requestPosts());
-    fetch(`${BASE_URL}posts`)
-      .then((response) =>
-        response.json().then((items) => {
-          const posts = parsePosts(items);
-          dispatch(setPosts({ posts }));
-        })
-      )
-      .catch(() => dispatch(postsError()));
+    dispatch(requestUsers());
+    getUsers()
+      .then((usersList) => {
+        dispatch(setUsers({ users: usersList }));
+        dispatch(requestPosts());
+        getPosts(usersList)
+          .then((postsList) => dispatch(setPosts({ posts: postsList })))
+          .catch(() => dispatch(postsError()));
+      })
+      .catch(() => dispatch(usersError()));
   }, [dispatch]);
 
   return <Grid items={posts} />;

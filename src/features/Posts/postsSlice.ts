@@ -1,17 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { REQUEST_STATUS } from '../../app/constants';
 import { RootState } from '../../app/store';
 
 export interface Post {
   id: string;
   title: string;
-  favorite: boolean;
   body: string;
   author: string;
+  favorite: boolean;
 }
 
 export interface PostsState {
   data: Post[];
-  status: 'loading' | 'idle' | 'failed';
+  status: REQUEST_STATUS;
 }
 
 const initialState: PostsState = {
