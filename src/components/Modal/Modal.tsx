@@ -1,8 +1,9 @@
 import React from 'react';
 import { isFavorite } from '../../app/utils/favorites';
-import { isPost, parseEntity } from '../../app/utils/posts';
+import { parseEntity } from '../../app/utils/parsers';
+import { isPost } from '../../app/utils/posts';
 import { Comment, Post } from '../../features/Posts/postsSlice';
-import { User } from '../../features/Users/usersSlice';
+import { Album, User } from '../../features/Users/usersSlice';
 
 import activeStar from '../Grid/icon_star.png';
 import inactiveStar from '../Grid/icon_star_inactive.png';
@@ -11,8 +12,9 @@ import closeIcon from './icon_close.svg';
 import styles from './Modal.module.css';
 
 interface IModalProps {
-  comments?: Comment[];
   item?: Post | User;
+  comments?: Comment[];
+  albums?: Album[];
   onClose: () => void;
 }
 
@@ -35,6 +37,20 @@ export function Modal(props: IModalProps) {
     );
   });
 
+  const albumsContent: JSX.Element[] = [];
+  props.albums?.forEach((album) => {
+    albumsContent.push(
+      <img
+        className={styles.album}
+        src={album.image}
+        alt={album.title}
+        title={album.title}
+        key={album.id}
+      />
+    );
+  });
+
+  console.log(props.item);
   return (
     <div className={styles.Modal}>
       <div className={styles['modal-content']}>
@@ -69,7 +85,14 @@ export function Modal(props: IModalProps) {
                 </h3>
                 {commentsContent}
               </>
-            ) : null}
+            ) : (
+              <>
+                <h3 className={styles['comments-title']}>
+                  Albums <span>({props.albums?.length})</span>
+                </h3>
+                {albumsContent}
+              </>
+            )}
           </div>
         </div>
       </div>

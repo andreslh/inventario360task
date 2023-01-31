@@ -80,6 +80,9 @@
   color: var(--text-grey);
 }
 
+.content .favorite {
+  cursor: pointer;
+}
 .content .main-text {
   font-weight: 600;
 }

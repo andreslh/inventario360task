@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { ENTITIES } from '../../app/constants';
 import { Button } from '../Button/Button';
 import { Container } from '../Container/Container';
+import { parseEntity } from '../../app/utils/parsers';
 
 import activeStar from './icon_star.png';
 import inactiveStar from './icon_star_inactive.png';
@@ -11,7 +12,6 @@ import arrowRight from './icon_arrow_right.svg';
 import arrowLeft from './icon_arrow_left.svg';
 
 import styles from './Grid.module.css';
-import { parseEntity } from '../../app/utils/posts';
 
 const ITEMS_PER_PAGE = 10;
 const INCREMENT = 'increment';
@@ -47,7 +47,7 @@ export function Grid(props: IGridProps) {
   );
 
   const handlePageChange = (action: string) => {
-    if (action === INCREMENT && currentPage < totalPages) {
+    if (action === INCREMENT && currentPage < totalPages && totalPages > 1) {
       setCurrentPage(currentPage + 1);
     }
 
@@ -74,6 +74,7 @@ export function Grid(props: IGridProps) {
         </td>
         <td className={styles['first-column-mobile']} width='5%'>
           <img
+            className={styles.favorite}
             src={starClass}
             alt='Favorite'
             onClick={() => props.onSwitchFavorite(item.id)}

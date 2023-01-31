@@ -53,7 +53,8 @@ export function Posts() {
           .catch(() => dispatch(postsError()));
       })
       .catch(() => dispatch(usersError()));
-  }, [dispatch, id, requestComments]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, id]);
 
   useEffect(() => {
     const post = findPost(posts, id);

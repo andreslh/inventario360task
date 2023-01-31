@@ -10,6 +10,12 @@ export interface User {
   favorite: boolean;
 }
 
+export interface Album {
+  id: string;
+  title: string;
+  image: string;
+}
+
 export interface UsersState {
   data: User[];
   status: REQUEST_STATUS;
