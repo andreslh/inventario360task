@@ -9,12 +9,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--gogo-grey-background);
+  background-color: var(--porcelain-rgba);
 }
 
 .modal-content {
   width: 830px;
-  background-color: var(--gogo-grey);
+  background-color: var(--porcelain);
   flex-basis: 0;
   border-radius: 6px;
 }
@@ -24,7 +24,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: var(--gogo-white);
+  background-color: var(--white);
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
@@ -37,7 +37,7 @@
 }
 
 .header-detail {
-  color: var(--text-medium-grey);
+  color: var(--storm);
   display: flex;
   align-items: center;
 }
@@ -48,7 +48,7 @@
 }
 
 .header-detail .id {
-  color: var(--text-light-grey);
+  color: var(--flint);
   margin-left: 10px;
 }
 
@@ -58,14 +58,14 @@
 
 .modal-body {
   margin: 20px;
-  background-color: var(--gogo-white);
-  color: var(--text-medium-grey);
+  background-color: var(--white);
+  color: var(--storm);
   border-radius: 6px;
 }
 
 .body-content {
   padding: 20px;
-  border-bottom: 1px solid var(--gogo-grey);
+  border-bottom: 1px solid var(--porcelain);
 }
 
 .body-details {
@@ -80,7 +80,7 @@
 }
 
 .comments-title span {
-  color: var(--text-light-grey);
+  color: var(--flint);
   font-weight: normal;
 }
 
@@ -91,7 +91,7 @@
 
 .comment-number {
   color: var(--raven);
-  background-color: var(--gogo-light-grey);
+  background-color: var(--koala);
   border-radius: 50%;
   height: 15px;
   padding: 7px;
@@ -99,7 +99,7 @@
 }
 
 .comment-text {
-  color: var(--text-light-grey);
+  color: var(--flint);
   font-size: 13px;
 }
 
@@ -120,7 +120,7 @@
   }
 
   .modal-header {
-    background-color: var(--gogo-grey);
+    background-color: var(--porcelain);
   }
 
   .modal-body {
@@ -131,6 +131,6 @@
 
   .body-content {
     padding: 20px;
-    border-bottom: 1px solid var(--gogo-white);
+    border-bottom: 1px solid var(--white);
   }
 }

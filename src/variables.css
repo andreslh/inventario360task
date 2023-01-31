@@ -1,25 +1,19 @@
 :root {
-  /* Background colors*/
-  --gogo-white: #ffffff;
+  --white: #ffffff;
 
-  --gogo-blue: #2d98da;
-  --gogo-light-blue: #3da0dd;
-  --gogo-lighter-blue: #75cfec;
+  --gogo: #2d98da;
+  --gogo-light: #3da0dd;
+  --monk: #75cfec;
 
-  --gogo-grey: #f3f5f7;
-  --gogo-light-grey: #e9eef2;
-  --gogo-grey-background: rgba(87, 114, 138, 0.4);
+  --porcelain: #f3f5f7;
+  --koala: #e9eef2;
+  --porcelain-rgba: rgba(87, 114, 138, 0.4);
 
-  --gogo-green: #36c99a;
+  --cosmo: #36c99a;
 
-  /* Text colors*/
-  --text-white: #ffffff;
-
-  --text-grey: #57728a;
-  --text-medium-grey: #727d8e;
-  --text-light-grey: #98a9bc;
-
-  --text-blue: #2d98da;
+  --smalt: #57728a;
+  --storm: #727d8e;
+  --flint: #98a9bc;
 
   --carbon: #304457;
   --raven: #7a8896;

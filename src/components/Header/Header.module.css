@@ -35,12 +35,12 @@ h1 {
 }
 
 .username {
-  color: var(--text-grey);
+  color: var(--smalt);
   font-size: 15px;
 }
 
 .position {
-  color: var(--text-light-grey);
+  color: var(--flint);
   font-size: 12px;
 }
 
@@ -48,8 +48,8 @@ h1 {
   .Header {
     display: flex;
     align-items: center;
-    background-color: var(--gogo-blue);
-    color: var(--text-white);
+    background-color: var(--gogo);
+    color: var(--white);
   }
 
   .sidebar {

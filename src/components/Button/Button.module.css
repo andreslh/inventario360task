@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   border: none;
-  background-color: var(--gogo-light-grey);
-  color: var(--text-light-grey);
+  background-color: var(--koala);
+  color: var(--flint);
   padding: 10px 15px;
   font-size: 12px;
   font-weight: 600;
@@ -13,7 +13,7 @@
 }
 
 .Button.light {
-  background-color: var(--gogo-white);
+  background-color: var(--white);
 }
 
 .Button.big {
@@ -21,8 +21,8 @@
 }
 
 .Button:hover {
-  background-color: var(--gogo-green);
-  color: var(--text-white);
+  background-color: var(--cosmo);
+  color: var(--white);
 }
 
 .position-left .icon {

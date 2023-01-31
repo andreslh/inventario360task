@@ -1,8 +1,8 @@
 .Menu {
   width: 242px;
   min-height: 100vh;
-  background-color: var(--gogo-blue);
-  color: var(--text-white);
+  background-color: var(--gogo);
+  color: var(--white);
 }
 
 .logo {
@@ -19,13 +19,13 @@
   height: 54px;
   cursor: pointer;
   opacity: 0.8;
-  color: var(--text-white);
+  color: var(--white);
   text-decoration: none;
 }
 
 .Menu ul li a.active,
 .Menu ul li a:hover {
-  background-color: var(--gogo-light-blue);
+  background-color: var(--gogo-light);
   opacity: 1;
 }
 
@@ -33,7 +33,7 @@
   width: 3px;
   height: 100%;
   content: '';
-  background-color: var(--gogo-lighter-blue);
+  background-color: var(--monk);
 }
 
 .Menu ul i,

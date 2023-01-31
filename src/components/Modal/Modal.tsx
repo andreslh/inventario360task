@@ -31,7 +31,9 @@ export function Modal(props: IModalProps) {
   props.comments?.forEach((comment) => {
     commentsContent.push(
       <p className={styles.comment} key={comment.id}>
-        <span className={styles['comment-number']}>{comment.id}</span>
+        <span className={styles['comment-number']}>
+          {comment.id.padStart(2, '0')}
+        </span>
         <span className={styles['comment-text']}>{comment.body}</span>
       </p>
     );
