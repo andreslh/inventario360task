@@ -17,7 +17,7 @@ export const parsePosts = (items: PostAPI[], users: UserAPI[]): Post[] =>
       id: item.id,
       title: item.title,
       author: author ? author.name : '',
-      favorite: !!localStorage.getItem(`${LEAD_GO_GO}-post-${item.id}`),
+      favorite: !!localStorage.getItem(`${LEAD_GO_GO}-posts-${item.id}`),
       body: item.body,
     };
   });

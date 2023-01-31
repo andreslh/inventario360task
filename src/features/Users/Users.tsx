@@ -2,29 +2,23 @@ import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { Grid } from '../../components/Grid/Grid';
 import { getUsers } from '../Users/UsersAPI';
-import { requestUsers, setUsers, usersError } from '../Users/usersSlice';
-import { getPosts } from './PostsAPI';
 import {
-  postsError,
-  requestPosts,
-  selectPosts,
-  setPosts,
+  requestUsers,
+  selectUsers,
+  setUsers,
+  usersError,
   switchFavorite,
-} from './postsSlice';
+} from '../Users/usersSlice';
 
-export function Posts() {
+export function Users() {
   const dispatch = useAppDispatch();
-  const posts = useAppSelector(selectPosts);
+  const users = useAppSelector(selectUsers);
 
   useEffect(() => {
     dispatch(requestUsers());
     getUsers()
       .then((usersList) => {
         dispatch(setUsers({ users: usersList }));
-        dispatch(requestPosts());
-        getPosts(usersList)
-          .then((postsList) => dispatch(setPosts({ posts: postsList })))
-          .catch(() => dispatch(postsError()));
       })
       .catch(() => dispatch(usersError()));
   }, [dispatch]);
@@ -35,8 +29,8 @@ export function Posts() {
 
   return (
     <Grid
-      content='posts'
-      items={posts}
+      content='users'
+      items={users}
       onSwitchFavorite={(id) => handleFavoriteSwitch(id)}
     />
   );

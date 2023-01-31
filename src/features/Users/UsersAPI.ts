@@ -1,4 +1,4 @@
-import { BASE_URL } from '../../app/constants';
+import { BASE_URL, LEAD_GO_GO } from '../../app/constants';
 import { User } from './usersSlice';
 
 export interface UserAPI {
@@ -12,7 +12,7 @@ export const parseUsers = (items: UserAPI[]): User[] =>
     id: item.id,
     name: item.name,
     phone: item.phone,
-    favorite: false,
+    favorite: !!localStorage.getItem(`${LEAD_GO_GO}-users-${item.id}`),
   }));
 
 export const getUsers = async (): Promise<User[]> => {

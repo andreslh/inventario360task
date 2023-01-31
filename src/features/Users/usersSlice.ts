@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { REQUEST_STATUS } from '../../app/constants';
 import { RootState } from '../../app/store';
+import { toggleFavorite } from '../../app/utils';
 
 export interface User {
   id: string;
@@ -33,10 +34,16 @@ export const usersSlice = createSlice({
     usersError: (state) => {
       state.status = 'failed';
     },
+    switchFavorite: (state, action: { payload: { id: string } }) => {
+      const { id } = action.payload;
+      const { index, isFavorite } = toggleFavorite(id, state, 'users');
+      state.data[index].favorite = isFavorite;
+    },
   },
 });
 
-export const { requestUsers, setUsers, usersError } = usersSlice.actions;
+export const { requestUsers, setUsers, usersError, switchFavorite } =
+  usersSlice.actions;
 
 export const selectUsers = (state: RootState) => state.users.data;
 

@@ -18,11 +18,14 @@ const DECREMENT = 'decrement';
 interface IGridElement {
   id: string;
   favorite: boolean;
-  title: string;
-  author: string;
+  title?: string;
+  author?: string;
+  phone?: string;
+  name?: string;
 }
 
 interface IGridProps {
+  content: 'posts' | 'users';
   items: IGridElement[];
   onSwitchFavorite: (id: string) => void;
 }
@@ -70,13 +73,16 @@ export function Grid(props: IGridProps) {
           />
         </td>
         <td className={classnames(styles['main-text'])}>
-          <p className={styles.title}>{item.title}</p>
+          <p className={styles.title}>
+            {props.content === 'posts' ? item.title : item.name}
+          </p>
           <p className={classnames('display-mobile', styles.detail)}>
-            ID: {item.id} / By {item.author}
+            ID: {item.id} /{' '}
+            {props.content === 'posts' ? `By ${item.author}` : item.phone}
           </p>
         </td>
         <td className='hide-mobile' width='25%'>
-          {item.author}
+          {props.content === 'posts' ? item.author : item.phone}
         </td>
         <td className={classnames(styles['last-column'], 't-right')} width='5%'>
           <div className='hide-mobile'>
@@ -131,11 +137,11 @@ export function Grid(props: IGridProps) {
               </th>
               <th></th>
               <th>
-                <span>Title</span>
+                <span>{props.content === 'posts' ? 'Title' : 'Name'}</span>
                 <i></i>
               </th>
               <th>
-                <span>Author</span>
+                <span>{props.content === 'posts' ? 'Author' : 'Phone'}</span>
                 <i></i>
               </th>
             </tr>

@@ -5,12 +5,15 @@ import { Container } from '../Container/Container';
 import sidebar from './icon_sidebar.svg';
 import avatar from './user_avatar.png';
 import styles from './Header.module.css';
+import { useLocation } from 'react-router-dom';
 
 interface IHeaderProps {
   onSwitchMenu: () => void;
 }
 
 export function Header(props: IHeaderProps) {
+  const location = useLocation();
+
   return (
     <header className={styles.Header}>
       <Container>
@@ -22,7 +25,7 @@ export function Header(props: IHeaderProps) {
               alt='Menu'
               onClick={() => props.onSwitchMenu()}
             />
-            <h1>Posts</h1>
+            <h1>{location.pathname === '/users' ? 'Users' : 'Posts'}</h1>
           </div>
 
           <div className={styles.user}>
