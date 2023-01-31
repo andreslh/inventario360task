@@ -39,6 +39,7 @@ export function Posts() {
     [dispatch, posts]
   );
 
+  // Necesitamos obtener usuarios primero para poder setear el autor de cada post, y si tenemos un id en la ruta, tambien solicitamos los comentarios.
   useEffect(() => {
     dispatch(requestUsers());
     getUsers()

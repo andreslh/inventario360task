@@ -10,7 +10,7 @@ export function Menu() {
 
   return (
     <nav className={styles.Menu}>
-      <img src={logo} className={styles.logo} alt='Lead go-go' />
+      <img src={logo} className={styles.logo} alt='Lead gogo' />
       <ul>
         <li className={styles.posts}>
           <NavLink

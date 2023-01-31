@@ -47,7 +47,7 @@ export function Grid(props: IGridProps) {
   );
 
   const handlePageChange = (action: string) => {
-    if (action === INCREMENT && currentPage < totalPages && totalPages > 1) {
+    if (action === INCREMENT && endItem < totalPages * ITEMS_PER_PAGE) {
       setCurrentPage(currentPage + 1);
     }
 
