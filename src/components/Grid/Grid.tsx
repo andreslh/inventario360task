@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import classnames from 'classnames';
 
+import { ENTITIES } from '../../app/constants';
 import { Button } from '../Button/Button';
 import { Container } from '../Container/Container';
 
@@ -11,7 +12,7 @@ import arrowLeft from './icon_arrow_left.svg';
 
 import styles from './Grid.module.css';
 
-const ITEMS_PER_PAGE = 14;
+const ITEMS_PER_PAGE = 10;
 const INCREMENT = 'increment';
 const DECREMENT = 'decrement';
 
@@ -25,7 +26,7 @@ interface IGridElement {
 }
 
 interface IGridProps {
-  content: 'posts' | 'users';
+  content: ENTITIES;
   items: IGridElement[];
   onSwitchFavorite: (id: string) => void;
 }

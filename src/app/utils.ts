@@ -1,11 +1,11 @@
 import { PostsState } from '../features/Posts/postsSlice';
 import { UsersState } from '../features/Users/usersSlice';
-import { LEAD_GO_GO } from './constants';
+import { LEAD_GO_GO, ENTITIES } from './constants';
 
 export const toggleFavorite = (
   id: string,
   state: PostsState | UsersState,
-  entity: 'posts' | 'users'
+  entity: ENTITIES
 ): { index: number; isFavorite: boolean } => {
   const localStorageItem = `${LEAD_GO_GO}-${entity}-${id}`;
   const isFavorite = !!localStorage.getItem(localStorageItem);

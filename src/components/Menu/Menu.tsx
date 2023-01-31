@@ -1,10 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import classnames from 'classnames';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import logo from './logo.svg';
 import styles from './Menu.module.css';
 
 export function Menu() {
+  const location = useLocation();
+
   return (
     <nav className={styles.Menu}>
       <img src={logo} className={styles.logo} alt='Lead go-go' />
@@ -12,7 +15,9 @@ export function Menu() {
         <li className={styles.posts}>
           <NavLink
             to='posts'
-            className={({ isActive }) => (isActive ? styles.active : '')}
+            className={classnames({
+              [styles.active]: location.pathname !== '/users',
+            })}
           >
             <i />
             <span>Posts</span>
@@ -22,7 +27,9 @@ export function Menu() {
         <li className={styles.users}>
           <NavLink
             to='users'
-            className={({ isActive }) => (isActive ? styles.active : '')}
+            className={classnames({
+              [styles.active]: location.pathname === '/users',
+            })}
           >
             <i />
             <span>Users</span>
