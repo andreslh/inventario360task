@@ -22,7 +22,7 @@ function App() {
   return (
     <div className='App'>
       <div className={classes}>
-        <Menu />
+        <Menu onSwitchMenu={() => dispatch(switchMenu())} />
 
         <main>
           <Header onSwitchMenu={() => dispatch(switchMenu())} />

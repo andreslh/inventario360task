@@ -20,10 +20,6 @@ body {
   transition: left 0.3s ease;
 }
 
-.menu-open {
-  left: 242px;
-}
-
 main {
   display: flex;
   flex-direction: column;
@@ -31,6 +27,12 @@ main {
   min-height: 100vh;
 }
 
-.app-inner.menu-open main {
-  opacity: 0.8;
+@media (max-width: 1023px) {
+  .menu-open {
+    left: 242px;
+  }
+
+  .app-inner.menu-open main {
+    opacity: 0.8;
+  }
 }

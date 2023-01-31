@@ -13,23 +13,26 @@
   list-style: none;
   padding: 0;
 }
-.Menu ul li a {
+.Menu ul li button {
   display: flex;
   align-items: center;
   height: 54px;
   cursor: pointer;
   opacity: 0.8;
   color: var(--white);
-  text-decoration: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  background-color: transparent;
 }
 
-.Menu ul li a.active,
-.Menu ul li a:hover {
+.Menu ul li button.active,
+.Menu ul li button:hover {
   background-color: var(--gogo-light);
   opacity: 1;
 }
 
-.Menu ul li a.active:before {
+.Menu ul li button.active:before {
   width: 3px;
   height: 100%;
   content: '';
