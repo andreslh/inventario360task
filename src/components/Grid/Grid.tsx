@@ -1,23 +1,19 @@
-import React, { useMemo, useState } from 'react';
-import classnames from 'classnames';
+import { useMemo, useState } from 'react';
 
-import { ENTITIES } from '../../app/constants';
-import { Button } from '../Button/Button';
+import {
+  ENTITIES,
+  DECREMENT,
+  INCREMENT,
+  ITEMS_PER_PAGE,
+} from '../../app/constants';
 import { Container } from '../Container/Container';
-import { parseEntity } from '../../app/utils/parsers';
-
-import activeStar from './icon_star.png';
-import inactiveStar from './icon_star_inactive.png';
-import arrowRight from './icon_arrow_right.svg';
-import arrowLeft from './icon_arrow_left.svg';
 
 import styles from './Grid.module.css';
+import { GridItem } from './GridItem';
+import { GridControls } from './GridControls';
+import { GridHeader } from './GridHeader';
 
-const ITEMS_PER_PAGE = 10;
-const INCREMENT = 'increment';
-const DECREMENT = 'decrement';
-
-interface IGridElement {
+export interface IGridElement {
   id: string;
   favorite: boolean;
   title?: string;
@@ -58,50 +54,13 @@ export function Grid(props: IGridProps) {
 
   const itemsList: JSX.Element[] = [];
   props.items.slice(startItem, endItem).forEach((item) => {
-    const starClass = item.favorite ? activeStar : inactiveStar;
-
-    const handleView = () => props.onView(item.id);
-
-    const entity = parseEntity(item);
-
     itemsList.push(
-      <tr key={item.id}>
-        <td
-          className={classnames(styles['first-column'], 'hide-mobile')}
-          width='6%'
-        >
-          {item.id}
-        </td>
-        <td className={styles['first-column-mobile']} width='5%'>
-          <img
-            className={styles.favorite}
-            src={starClass}
-            alt='Favorite'
-            onClick={() => props.onSwitchFavorite(item.id)}
-          />
-        </td>
-        <td className={classnames(styles['main-text'])}>
-          <p className={styles.title}>{entity.name}</p>
-          <p className={classnames('display-mobile', styles.detail)}>
-            ID: {item.id} / {entity.detailPrefix}
-            {entity.detail}
-          </p>
-        </td>
-        <td className='hide-mobile' width='25%'>
-          {entity.detail}
-        </td>
-        <td className={classnames(styles['last-column'], 't-right')} width='5%'>
-          <div className='hide-mobile'>
-            <Button text={'View'} onClick={handleView} />
-          </div>
-          <img
-            src={arrowRight}
-            alt='View'
-            className='display-mobile'
-            onClick={handleView}
-          />
-        </td>
-      </tr>
+      <GridItem
+        item={item}
+        onView={props.onView}
+        onSwitchFavorite={props.onSwitchFavorite}
+        key={item.id}
+      />
     );
   });
 
@@ -119,65 +78,21 @@ export function Grid(props: IGridProps) {
             posts
           </p>
           <div className={styles['controls-top']}>
-            <Button
-              text='Prev'
-              icon={arrowLeft}
-              theme='light'
-              size='big'
-              onClick={() => handlePageChange(DECREMENT)}
-            />
-            <Button
-              text='Next'
-              icon={arrowRight}
-              iconPosition='right'
-              theme='light'
-              size='big'
-              onClick={() => handlePageChange(INCREMENT)}
-            />
+            <GridControls onPageChange={handlePageChange} />
           </div>
         </div>
       </Container>
 
       <Container mobileBehavior='nopadding'>
         <table className={styles.content} cellPadding='0' cellSpacing='0'>
-          <thead>
-            <tr className={'hide-mobile'}>
-              <th className={styles['first-column']}>
-                <span>ID</span>
-                <i></i>
-              </th>
-              <th></th>
-              <th>
-                <span>{props.content === 'posts' ? 'Title' : 'Name'}</span>
-                <i></i>
-              </th>
-              <th>
-                <span>{props.content === 'posts' ? 'Author' : 'Phone'}</span>
-                <i></i>
-              </th>
-            </tr>
-          </thead>
+          <GridHeader content={props.content} />
           <tbody>{itemsList}</tbody>
         </table>
       </Container>
 
       <Container>
         <div className={styles.controls}>
-          <Button
-            text='Prev'
-            icon={arrowLeft}
-            theme='light'
-            size='big'
-            onClick={() => handlePageChange(DECREMENT)}
-          />
-          <Button
-            text='Next'
-            icon={arrowRight}
-            iconPosition='right'
-            theme='light'
-            size='big'
-            onClick={() => handlePageChange(INCREMENT)}
-          />
+          <GridControls onPageChange={handlePageChange} />
         </div>
       </Container>
     </div>

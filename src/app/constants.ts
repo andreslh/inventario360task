@@ -10,3 +10,7 @@ export const ROUTES = {
   POSTS: '/posts',
   USERS: '/users',
 };
+
+export const ITEMS_PER_PAGE = 10;
+export const INCREMENT = 'increment';
+export const DECREMENT = 'decrement';

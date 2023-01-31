@@ -52,7 +52,6 @@ export function Modal(props: IModalProps) {
     );
   });
 
-  console.log(props.item);
   return (
     <div className={styles.Modal}>
       <div className={styles['modal-content']}>
