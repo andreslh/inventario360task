@@ -1,12 +1,13 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { Container } from '../Container/Container';
+import { ROUTES } from '../../app/constants';
 
 import sidebar from './icon_sidebar.svg';
 import avatar from './user_avatar.png';
+
 import styles from './Header.module.css';
-import { useLocation } from 'react-router-dom';
-import { ROUTES } from '../../app/constants';
 
 interface IHeaderProps {
   onSwitchMenu: () => void;

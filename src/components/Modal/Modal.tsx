@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { isFavorite } from '../../app/utils/favorites';
 import { parseEntity } from '../../app/utils/parsers';
 import { isPost } from '../../app/utils/posts';

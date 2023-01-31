@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import {
   ENTITIES,
@@ -7,11 +7,11 @@ import {
   ITEMS_PER_PAGE,
 } from '../../app/constants';
 import { Container } from '../Container/Container';
-
-import styles from './Grid.module.css';
 import { GridItem } from './GridItem';
 import { GridControls } from './GridControls';
 import { GridHeader } from './GridHeader';
+
+import styles from './Grid.module.css';
 
 export interface IGridElement {
   id: string;

@@ -2,9 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import logo from './logo.svg';
-import styles from './Menu.module.css';
 import { ROUTES } from '../../app/constants';
+
+import logo from './logo.svg';
+
+import styles from './Menu.module.css';
 
 interface IMenuProps {
   onSwitchMenu: () => void;

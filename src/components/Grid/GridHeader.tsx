@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ENTITIES } from '../../app/constants';
 
 import styles from './Grid.module.css';
