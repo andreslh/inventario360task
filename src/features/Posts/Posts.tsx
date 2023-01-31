@@ -4,7 +4,13 @@ import { Grid } from '../../components/Grid/Grid';
 import { getUsers } from '../Users/UsersAPI';
 import { requestUsers, setUsers, usersError } from '../Users/usersSlice';
 import { getPosts } from './PostsAPI';
-import { postsError, requestPosts, selectPosts, setPosts } from './postsSlice';
+import {
+  postsError,
+  requestPosts,
+  selectPosts,
+  setPosts,
+  switchFavorite,
+} from './postsSlice';
 
 export function Posts() {
   const dispatch = useAppDispatch();
@@ -23,5 +29,11 @@ export function Posts() {
       .catch(() => dispatch(usersError()));
   }, [dispatch]);
 
-  return <Grid items={posts} />;
+  const handleFavoriteSwitch = (id: string) => {
+    dispatch(switchFavorite({ id }));
+  };
+
+  return (
+    <Grid items={posts} onSwitchFavorite={(id) => handleFavoriteSwitch(id)} />
+  );
 }

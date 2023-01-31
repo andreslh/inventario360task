@@ -1,4 +1,4 @@
-import { BASE_URL } from '../../app/constants';
+import { BASE_URL, LEAD_GO_GO } from '../../app/constants';
 import { UserAPI } from '../Users/UsersAPI';
 import { Post } from './postsSlice';
 
@@ -17,7 +17,7 @@ export const parsePosts = (items: PostAPI[], users: UserAPI[]): Post[] =>
       id: item.id,
       title: item.title,
       author: author ? author.name : '',
-      favorite: false,
+      favorite: !!localStorage.getItem(`${LEAD_GO_GO}-post-${item.id}`),
       body: item.body,
     };
   });

@@ -24,6 +24,7 @@ interface IGridElement {
 
 interface IGridProps {
   items: IGridElement[];
+  onSwitchFavorite: (id: string) => void;
 }
 
 export function Grid(props: IGridProps) {
@@ -62,7 +63,11 @@ export function Grid(props: IGridProps) {
           {item.id}
         </td>
         <td className={styles['first-column-mobile']} width='5%'>
-          <img src={starClass} alt='Favorite' />
+          <img
+            src={starClass}
+            alt='Favorite'
+            onClick={() => props.onSwitchFavorite(item.id)}
+          />
         </td>
         <td className={classnames(styles['main-text'])}>
           <p className={styles.title}>{item.title}</p>
